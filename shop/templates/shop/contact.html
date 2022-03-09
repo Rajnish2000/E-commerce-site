@@ -1,0 +1,55 @@
+{% extends 'shop/base.html' %}
+
+{% block title %}Contact page {% endblock %}
+{% block css %}
+
+    .jumbotron{
+        text-align:center;
+    }
+textarea{
+    min-height:150px;
+}
+#contactForm{
+    width: 30rem;
+    margin: auto;
+    margin-bottom:30px;
+}
+.form-label{
+  font-weight:bold;
+  font-family:lucida Fx;
+  font-size:large;
+}
+
+
+{% endblock%}
+
+{% block body %}
+        <div class="jumbotron mt-2">
+            <h1 class="font-weight-bold">Contact Us</h1>
+        </div>
+    <div class="container">
+        <form action="/shop/contact/" method="post" id="contactForm">
+            {% csrf_token %}
+          <div class="mb-3 form-group">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Enter your Name">
+<!--            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>-->
+          </div>
+            <div class="mb-3 form-group">
+            <label for="Email" class="form-label">Email</label>
+            <input type="text" class="form-control" name="email" id="Email" placeholder="Enter your Email ">
+<!--            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>-->
+          </div>
+            <div class="mb-3 form-group">
+            <label for="Phone" class="form-label">Phone</label>
+            <input type="number" class="form-control" name="phone" id="Phone" placeholder="Enter your phone Number">
+<!--            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>-->
+          </div>
+          <div class="mb-3 form-group">
+            <label for="desc" class="form-label">How may I help You ?</label>
+              <textarea class="form-control" name="desc" id="desc" placeholder="Enter your query here !!"></textarea>
+          </div>
+          <button type="submit" class="btn btn-success btn-block">Submit</button>
+        </form>
+   </div>
+{% endblock %}

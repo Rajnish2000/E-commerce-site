@@ -1,0 +1,51 @@
+{% extends 'blog/base.html' %}
+{% block title %}blog title{% endblock %}
+
+{% block css %}
+
+img{
+  height:200px;
+  width:130px;
+  float:left;
+  background-size:cover;
+}
+.container{
+    margin-top: -2rem;
+    display:flex;
+}
+
+
+
+{% endblock %}
+
+{% load static %}
+{% block body %}
+<div class="container">
+    <div class="row my-5 mx-2">
+        {% for blog in mypost %}
+        <div class="col-md-5 mx-4">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary">{{blog.title}}</strong>
+                    <h5 class="mb-0">{{blog.head0|slice:"0:22"}}...</h5>
+                    <div class="mb-1 text-muted">Nov 12</div>
+                    <p class="card-text mb-auto">{{blog.cHead0|slice:":60"}}...</p>
+                    <a href="blogpost/{{blog.post_id}}" class="stretched-link">Continue reading</a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <!--  <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"> -->
+                    
+                    <!-- <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                    </svg> -->
+                    <img src="/media/{{blog.thumbnail}}" alt="no image">
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:2 %}
+        </div>
+        <div class="row mb-2">
+            {% endif %}
+        </div>
+
+            {% endfor %}
+    </div>
+    {% endblock %}

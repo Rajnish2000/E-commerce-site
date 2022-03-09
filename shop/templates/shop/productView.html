@@ -1,0 +1,86 @@
+{% extends 'shop/base.html' %}
+
+{% block title %} {{product.product_name}} {% endblock %}
+{% block css %}
+
+.Image img{
+height:30rem;
+width:22rem;
+background-size:cover;
+}
+
+.Image{ margin: 4rem 0rem;}
+.description{
+padding: 22px 83px;
+margin: 5rem;
+}
+h3{color : blue;}
+h4{color:green}
+p i b{color: turquoise;}
+
+{% comment %} .border-img{
+border:1px solid black;
+border-style:dotted;
+} {% endcomment %}
+
+
+{% endblock%}
+{% block body %}
+{% load static %}
+<div class="container my-4">
+    <div class="row">
+        <div class="col-md-6 border-img">
+            <div class="Image">
+            <img src="/media/{{product.image}}" >
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="description mx-3">
+                <h3>{{product.product_name}}</h3>
+                <h4> Price :- Rs. {{product.price}}.00</h4>
+                <br />
+                <p><i><b>{{product.desc|slice:"0:237"}}</b></i></p>
+                <p><i><b>{{product.desc|slice:"245:501"}}</b></i></p>
+                <p><i><b>{{product.desc|slice:"501:"}}</b></i></p>
+                <button id="pr{{i.id}}" type="button" class="btn btn-primary cart my-3 mx-2">Add to Cart</button>
+                <button type="button" class="btn btn-primary my-3 mx-2">Order Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script>
+    console.log('script is working');
+    if (localStorage.getItem('cart') == null) {
+        var cart = {};
+    }
+    else {
+        cart = JSON.parse(localStorage.getItem('cart'));
+        document.getElementById('popcart').innerHTML = Object.keys(cart).length;
+    }
+    $('.cart').click(function () {
+        console.log('cart is clicked');
+        var idstr = this.id.toString();
+        console.log(idstr);
+        if (cart[idstr] != undefined) {
+            cart[idstr] = cart[idstr] + 1;
+        }
+        else {
+            cart[idstr] = 1;
+        }
+        console.log(cart);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        document.getElementById('popcart').innerHTML = Object.keys(cart).length;
+    });
+    $('#cartpop').popover('hide')
+    document.getElementById('cartpop').setAttribute('data-content', '<h6>items Added to Cart</h6>')
+
+
+
+    // feedback
+
+</script>
+{% endblock %}

@@ -1,0 +1,114 @@
+{% extends 'shop/base.html' %}
+
+{% block title %}shop/Team{% endblock title %}
+
+{% block css %}
+.col-md-offset-1 h1{
+    text-align:center;
+    padding-top:2rem;
+    padding-bottom:0.2rem;
+    font-weight:bold;
+}
+.line-div hr{
+    background-color:yellow;
+    height:15px;
+    width: 250px;
+    justify-content:center;
+    align-item:center;
+    border-radius:20px;
+    marign-bottom:2rem;
+}
+.row{
+    padding-bottom:3rem;
+    padding-top:2rem;
+}
+img{
+    height: 22vh;
+    border-radius: 65px;
+    box-shadow:1px 2px 8px 1px lightslategrey;
+}
+.col-md-9 leader-title{
+    margin-left:2rem;
+}
+h3{
+    font-weight:500;
+}
+.leaders-title p{
+    
+    font-style: oblique;
+    color: deepskyblue;
+    font-weight: 400;
+
+}
+
+{% endblock css %}
+
+
+{% block body %}
+{% load static %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+                <h1>Meet our leaders</h1>
+                <div class="line-div"><hr></div>
+                <div class="row">
+                    <!--First Leader-->
+                    <div class="col-md-6 col-xs-12 col-sm-12">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="leader-pic"> <img src={% static 'image/rajnish.jpg' %}
+                                        class="img-responsive"> </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="leaders-title pl-5 mt-5">
+                                    <h3>Rajnish Singh</h3>
+                                    <p>Founder of MyShopCart</p>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mt-2">
+                                <div class="leader-desc">
+                                    <p>MyShopCart’s work culture is as diverse, fast-paced and challenging as the
+                                        e-commerce industry itself. While each one here strives towards revolutionizing
+                                        the way India shops, it is our unique culture that fosters, inspires and instils
+                                        the confidence to bring out the best in every individual!</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <!--second Leader-->
+                    <div class="col-md-5 col-xs-12 col-sm-12">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="leader-pic"> <img src={% static 'image/rajnish.jpg' %}
+                                        class="img-responsive"> </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="leaders-title pl-5 mt-5">
+                                    <h3>Rajeshwar Mishra</h3>
+                                    <p>Co-founder of MyshopCart</p>
+                                </div>
+                            </div>
+                            <div class="col-md-12  mt-2">
+                                <div class="leader-desc">
+                                    <p>Our culture encourages a transparent, diverse and inclusive environment,
+                                        empowering us to be ourselves, stay curious, be authentic, and fearless - all
+                                        while keeping our end customer in mind.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+{% endblock body %}
