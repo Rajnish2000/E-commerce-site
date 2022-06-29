@@ -5,7 +5,7 @@ from math import ceil
 import json
 from django.views.decorators.csrf import csrf_exempt
 from .paytm import Checksum
-MERCHANT_KEY = 'bKMfNxPPf_QdZppa'
+MERCHANT_KEY = '******'
 # Create your views here.
 def index(request):
     # products = Product.objects.all()
