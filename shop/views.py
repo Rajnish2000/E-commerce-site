@@ -170,5 +170,5 @@ def handlerequest(request):
 
 # superuser  : rajnish
 # passeord : rajnish2000
-# pooja di MID : dcZRCd63955400650914
-# WorldP64425807474247
+
+
